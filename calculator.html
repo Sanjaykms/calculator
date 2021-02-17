@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple Calculator</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta charset="UTF-8">
+        <link rel="icon" sizes="any" href="cal2.png">
+        <style>
+            html{
+                font-size: 1.5em;
+                cursor: url(cursor1.cur),auto;
+            }
+            *{
+                box-sizing: border-box;
+            }
+            body{
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                margin:0 0 150px;
+            }
+            .main{
+               text-align: center;
+               margin: 100px auto 0 auto;
+               width: 25%;
+               justify-content: center;
+            }
+            .header{
+                font-size:2.16em;
+                color:#495097;
+                text-align: center;
+                width: 100%;
+            }
+            input{
+                text-align: right;
+                display: block;
+                margin: auto;
+                width: 90%;
+                background:transparent;
+                font-size: 1em;
+            }
+            .calc{
+                text-align: center;
+                width: 50%;
+                justify-content: center;
+                margin: auto;
+            }
+            .input .disable{
+                font-size:0.66em;
+                border-radius: 2px 2px 0 0;
+                border-top: none;
+                border-left: none;
+            }
+            .able{
+                border-radius:0 0 2px 2px;
+                border-top: none;
+                border-left: none;
+            }
+            .input{
+                margin-top: 50px;
+                padding-top: 20px;
+            }
+            .key{
+                width: 100%;
+                text-align: center;
+                background-color: black;
+                border-radius: 5px;
+                color: white;
+            }
+            .div{
+                display:flex;
+                justify-content:space-around;
+            }
+            .div>p{
+                display:inline;
+                padding:10px;
+            }
+            p{
+                border: 1px solid red;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            p:hover{
+                border-color: blue;
+                box-shadow: 1px 3px 1px 2px rgb(123, 121, 238);
+            }
+            p:active{
+                color: green;
+            }
+            .div>.ac{
+                padding:10px 40px;
+            }
+            .ac:hover{
+                border-color:white;
+                box-shadow: 1px 3px 1px 2px white;
+            }
+            .ac:active{
+                background-color: white;
+                color: red;
+            }
+            .div>.ac1{
+                padding:10px 40px;
+            }
+            .ac1:hover{
+                border-color:white;
+                box-shadow: 1px 3px 1px 2px white;
+            }
+            .ac1:active{
+                background-color: green;
+                color: white;
+            }
+            .div2{
+                position: relative;
+                right: 0%;
+            }
+            @media (max-width: 778px) {
+                .main{
+                    width: 70%;
+                    margin-top:20px;
+                }
+                body{
+                    margin:0 0 40px;
+                    }
+
+            }
+            
+            
+            
+            .newload{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background-color: #fbff85;
+        }
+        .boxxes{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: #f4fc19;
+        }
+        .boxxes span{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        .boxxes span::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: lightblue;
+            animation: animated 2s linear infinite;
+            transform: scaleX(0);
+        }
+        .boxxes span:nth-child(1){
+            transform: rotate(0);
+        }
+        .boxxes span:nth-child(2){
+            transform: rotate(90deg);
+        }
+        .boxxes span:nth-child(3){
+            transform: rotate(180deg);
+        }
+        .boxxes span:nth-child(4){
+            transform: rotate(270deg);
+        }
+        @keyframes animated{
+            0%{
+                transform: scaleX(0);
+                transform-origin: left;
+            }
+            25%{
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+            25.0001%{
+                transform-origin: right;
+            }
+            50%,100%{
+                transform: scaleX(0);
+                transform-origin: right;
+            }
+            
+        }
+        .boxxes span:nth-child(1)::before{
+            animation-delay: 0s;
+        }
+        .boxxes span:nth-child(2)::before{
+            animation-delay: 0.5s;
+        }
+        .boxxes span:nth-child(3)::before{
+            animation-delay: 1s;
+        }
+        .boxxes span:nth-child(4)::before{
+            animation-delay: 1.5s;
+        }
+        </style>
+        <script>
+            var v="";
+            function common(){
+                document.getElementById("input2").value=v;
+                document.getElementById("input1").value=v;
+            }
+            function input2(){
+                v="";
+               common();
+            }
+            function one(){
+                v+="1";
+                common();
+            }
+            function two(){
+                v+="2";
+                common();
+            }
+            function three(){
+                v+="3";
+                common();
+            }
+            function four(){
+                v+="4";
+                common();
+            }
+            function five(){
+                v+="5";
+                common();
+            }
+            function six(){
+                v+="6";
+                common();
+            }
+            function seven(){
+                v+="7";
+                common();
+            }
+            function eight(){
+                v+="8";
+                common();
+            }
+            function nine(){
+                v+="9";
+                common();
+            }
+            function zero(){
+                v+="0";
+                common();
+            }
+            function dot(){
+                v+=".";
+                common();
+            }
+            function add(){
+               v+="+";
+               common();
+            }
+            function sub(){
+                v+="-";
+                common();
+            }
+            function mul(){
+                v+="*";
+                common();
+            }
+            function div(){
+                v+="/";
+                common();
+            }
+            function equal(){
+                document.getElementById("input1").value+="="+eval(v);
+                document.getElementById("input2").value=eval(v);
+            }
+            
+               //loading
+            var loadingscr;
+            function myfunction1(){
+                setTimeout(showout,3000);
+            }
+            function showout(){
+                document.querySelector(".newload").style.display="none";
+                document.querySelector(".main").style.display="block";
+            }
+        </script>
+    </head>
+    <body onload="myfunction1()">
+        <div class="newload">
+        <div class="boxxes">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        </div>
+        
+        <section class="main" style="display:none;">
+            <header class="header">Calculator</header>
+            <section class="calc key">
+                <div class="input">
+                    <input type="text"  disabled class="disable" id="input1"> 
+                    <input type="text"  class="able" id="input2" placeholder="0" onkeydown="myfunction()" disabled>
+                </div>
+                <div>
+                    <div class="div">
+                        <p class="ac" name="hi" onclick="input2()" id="ac">AC</p>
+                        <p onclick="div()">/</p>
+                        <p onclick="mul()">x</p>
+                    </div>
+                    <div class="div">
+                        <p onclick="seven()">7</p>
+                        <p onclick="eight()">8</p>
+                        <p onclick="nine()">9</p>
+                        <p onclick="sub()">-</p>
+                    </div>
+                    <div class="div2" style="width: 86.5%;">
+                        <div class="div" style="position: relative;float: right;left:6.8%;">
+                            <p style="padding: 58px 10px;" onclick="add()">+</p>
+                        </div>
+                        <div class="div">
+                            <p onclick="four()">4</p>
+                            <p onclick="five()">5</p>
+                            <p onclick="six()">6</p>
+                        </div>
+                        <div class="div">
+                            <p onclick="one()">1</p>
+                            <p onclick="two()">2</p>
+                            <p onclick="three()">3</p>
+                        </div>
+                    </div>
+                    <div class="div">
+                        <p onclick="dot()">.</p>
+                        <p onclick="zero()">0</p>
+                        <p class="ac1" onclick="equal()">=</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </body>
+</html>
